@@ -8,13 +8,13 @@ const { translate, rotateX } = require('@jscad/modeling').transforms;
 const grid = require('../../lib/grid');
 const config = require('../../lib/config');
 const preview = require('../../lib/preview');
-const { rasterizeX, rasterizeZ } = require('../../lib/rasterize');
+const { rasterizeX, rasterizeY, rasterizeZ } = require('../../lib/rasterize');
 
 const main = (params) => {
   const { numLayers, layerHeight, connectorWidth, connectorPlay, segments } = config({
     params,
     defaults: {
-      numLayers: 9,
+      numLayers: 14,
       layerHeight: 3.25,
       connectorWidth: 10,
       connectorPlay: 0.1,
@@ -22,14 +22,18 @@ const main = (params) => {
     },
   });
 
-  const radius = (numLayers * layerHeight) / 2 + layerHeight / 2;
+  const radius = (numLayers * layerHeight) / 2 + 0.5;
 
-  // create a sphere, rasterize it via X axis and Z axis, resulting in Z axis slices
+  // create a sphere, rasterize it via X, Y, Z axis, resulting in Z axis slices
   const slices = grid.center(
     rasterizeZ({ size: layerHeight },
       union(
-        rasterizeX({ size: layerHeight },
-          sphere({ radius, segments })
+        rasterizeY({ size: layerHeight },
+          union(
+            rasterizeX({ size: layerHeight },
+              sphere({ radius, segments })
+            )
+          )
         )
       )
     )

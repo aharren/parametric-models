@@ -1,0 +1,8 @@
+#! /usr/bin/env zsh
+
+file=$1
+shift
+
+# generate SVG file for the given model (2D aspects only)
+echo "model: ${file}"
+./node_modules/.bin/jscad "${file}" -of svg $@

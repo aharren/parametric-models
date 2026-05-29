@@ -3,6 +3,7 @@
 const { cuboid, cylinder } = require('@jscad/modeling').primitives;
 const { subtract } = require('@jscad/modeling').booleans;
 const { hull } = require('@jscad/modeling').hulls;
+const { project } = require('@jscad/modeling').extrusions;
 
 const grid = require('../../lib/grid');
 const config = require('../../lib/config');
@@ -45,7 +46,11 @@ const main = (params) => {
   // construct the frame, subtract the plate with addtional space
   const plateWithSpace = plate(cornerRadius + space, 0);
   const frame = grid.at([-frameBorder, -frameBorder, 0], cuboid({ size: [width + 2 * space + 2 * frameBorder, depth + 2 * space + 2 * frameBorder, height] }));
-  objects.push(subtract(frame, plateWithSpace));
+  const frameMinusPlateWithSpace = subtract(frame, plateWithSpace);
+  objects.push(frameMinusPlateWithSpace);
+
+  // also add the 2D projection it
+  objects.push(project({}, frameMinusPlateWithSpace));
 
   return grid.center(objects);
 }

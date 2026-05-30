@@ -1,0 +1,86 @@
+solid JSCAD
+facet normal -1 0 0
+outer loop
+vertex -12.5 -25 0
+vertex -12.5 -25 75
+vertex -12.5 25 75
+endloop
+endfacet
+facet normal -1 0 0
+outer loop
+vertex -12.5 -25 0
+vertex -12.5 25 75
+vertex -12.5 25 0
+endloop
+endfacet
+facet normal 1 0 0
+outer loop
+vertex 12.5 -25 0
+vertex 12.5 25 0
+vertex 12.5 25 75
+endloop
+endfacet
+facet normal 1 0 0
+outer loop
+vertex 12.5 -25 0
+vertex 12.5 25 75
+vertex 12.5 -25 75
+endloop
+endfacet
+facet normal 0 -1 0
+outer loop
+vertex -12.5 -25 0
+vertex 12.5 -25 0
+vertex 12.5 -25 75
+endloop
+endfacet
+facet normal 0 -1 0
+outer loop
+vertex -12.5 -25 0
+vertex 12.5 -25 75
+vertex -12.5 -25 75
+endloop
+endfacet
+facet normal 0 1 0
+outer loop
+vertex -12.5 25 0
+vertex -12.5 25 75
+vertex 12.5 25 75
+endloop
+endfacet
+facet normal 0 1 0
+outer loop
+vertex -12.5 25 0
+vertex 12.5 25 75
+vertex 12.5 25 0
+endloop
+endfacet
+facet normal 0 0 -1
+outer loop
+vertex -12.5 -25 0
+vertex -12.5 25 0
+vertex 12.5 25 0
+endloop
+endfacet
+facet normal 0 0 -1
+outer loop
+vertex -12.5 -25 0
+vertex 12.5 25 0
+vertex 12.5 -25 0
+endloop
+endfacet
+facet normal 0 0 1
+outer loop
+vertex -12.5 -25 75
+vertex 12.5 -25 75
+vertex 12.5 25 75
+endloop
+endfacet
+facet normal 0 0 1
+outer loop
+vertex -12.5 -25 75
+vertex 12.5 25 75
+vertex -12.5 25 75
+endloop
+endfacet
+endsolid JSCAD

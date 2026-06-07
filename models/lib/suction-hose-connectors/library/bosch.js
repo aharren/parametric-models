@@ -5,10 +5,10 @@ const construct = require('../construct');
 const OrbitalSander_GSS12V13_O28 = {
   plug:
     construct.plug({
-      outerDiameterA: 28,
+      outerDiameterA: 27.9,
       innerDiameterA: 24,
       distanceAB: 24,
-      outerDiameterB: 28,
+      outerDiameterB: 27.8,
       heightRingA: 5,
     }),
 };

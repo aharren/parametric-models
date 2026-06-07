@@ -1,6 +1,6 @@
-# Parametric 3D Models
+# Parametric 3D and 2D Models
 
-Parametric 3D models using JavaScript and [JSCAD](https://github.com/jscad/OpenJSCAD.org).
+Parametric 3D and 2D models using JavaScript and [JSCAD](https://github.com/jscad/OpenJSCAD.org).
 
 ## Installation
 
@@ -18,11 +18,26 @@ Use [Visual Studio Code](https://code.visualstudio.com) and the [JSCAD Preview e
 
 ![](.readme/vscode-editor-preview-0.png)
 
-## STL Creation
+## STL Creation for 3D Objects
 
-Run the `model-to-stla` script and pass the name of the model file to create an STL text file from the model.
+Run the `model-to-stla` script and pass the name of the model file (or folder) to create an STL text file from the 3D objects in the model.
 
-Example:
+Examples:
 ```
 ./scripts/model-to-stla models/box/box.js
+```
+```
+./scripts/model-to-stla models/box
+```
+
+## SVG Creation for 2D Objects
+
+Run the `model-to-svg` script for creating an SVG file from the model's 2D objects.
+
+Examples:
+```
+./scripts/model-to-svg models/router-guide-rail-rounded-plate/router-guide-rail-rounded-plate.js
+```
+```
+./scripts/model-to-svg models/router-guide-rail-rounded-plate
 ```

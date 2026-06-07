@@ -1,7 +1,7 @@
 'use strict';
 
 const { measureBoundingBox } = require('@jscad/modeling').measurements;
-const { align } = require('@jscad/modeling').transforms;
+const { align, translate } = require('@jscad/modeling').transforms;
 const { cuboid, cylinder } = require('@jscad/modeling').primitives;
 const { subtract, union, intersect } = require('@jscad/modeling').booleans;
 const { hull } = require('@jscad/modeling').hulls;
@@ -65,14 +65,15 @@ const main = (params) => {
     const part1BoundingBox = measureBoundingBox(part1);
 
     // create dovetail joints for both sides
-    const size = [10, Math.ceil(frameBorder * 3 / 5), height];
+    const depth = 10;
+    const size = [depth, Math.ceil(frameBorder * 3 / 5), height];
     const [plug1, socket1] = joints.dovetail({ size, play: splitXPlay, relativeTo: [part1BoundingBox[1][0], part1BoundingBox[1][1] - frameBorder / 2, part1BoundingBox[1][2] - height / 2] });
     const [plug2, socket2] = joints.dovetail({ size, play: splitXPlay, relativeTo: [part1BoundingBox[1][0], part1BoundingBox[0][1] + frameBorder / 2, part1BoundingBox[1][2] - height / 2] });
 
     // return parts with dovetail joints' plug and socket
     return [
       colorize.blue(union(part1, plug1, plug2)),
-      colorize.red(subtract(part2, socket1, socket2))
+      colorize.red(translate([depth * 2, 0, 0], subtract(part2, socket1, socket2)))
     ];
   })();
   objects.push(...frameComponents);

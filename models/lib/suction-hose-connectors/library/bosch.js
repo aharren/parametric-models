@@ -16,10 +16,10 @@ const OrbitalSander_GSS12V13_O28 = {
 const OrbitalSander_GEX125150AVE_O28 = {
   plug:
     construct.plug({
-      outerDiameterA: 27.5,
-      innerDiameterA: 22.5,
+      outerDiameterA: 27.4,
+      innerDiameterA: 22.4,
       distanceAB: 33.5,
-      outerDiameterB: 28.5,
+      outerDiameterB: 28.4,
       heightRingA: 5,
     }),
 };

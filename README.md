@@ -7,8 +7,8 @@ Parametric 3D and 2D models using JavaScript and [JSCAD](https://github.com/jsca
 Clone the Git repository and install dependencies via [Node](https://nodejs.org)'s `npm`:
 
 ```
-git clone https://github.com/aharren/parametric-3d-models.git
-cd parametric-3d-models
+git clone https://github.com/aharren/parametric-models.git
+cd parametric-models
 npm install --ignore-scripts
 ```
 

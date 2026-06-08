@@ -1,0 +1,10 @@
+#! /usr/bin/env zsh
+
+dir=$(dirname "${0:a:h}")/models
+
+# call model-to-stla/svg for all folders
+models=(${dir}/*(/N))
+for model in ${models}; do
+  ./scripts/model-to-stla "${model}"
+  ./scripts/model-to-svg "${model}"
+done

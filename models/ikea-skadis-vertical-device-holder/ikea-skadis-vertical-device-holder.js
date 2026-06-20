@@ -11,7 +11,7 @@ const config = require('../../lib/config');
 const preview = require('../../lib/preview');
 
 const main = (params) => {
-  const { deviceHeight, deviceWidth, deviceDepthEnclosed, bottomBorderWidth, wallThickness, numBracketsX, numBracketsY, bracketWidth, bracketDepth } = config({
+  const { deviceHeight, deviceWidth, deviceDepthEnclosed, bottomBorderWidth, wallThickness, numBracketsX, numBracketsY, bracketWidth, bracketDepth, shellModifier } = config({
     params,
     //config: require('./apple-airport-express-gen2'),
     defaults: {
@@ -26,6 +26,8 @@ const main = (params) => {
       numBracketsY: 2,
       bracketWidth: 2,
       bracketDepth: 2,
+
+      shellModifier: (object) => { return object; },
     }
   });
 
@@ -69,7 +71,7 @@ const main = (params) => {
     innerBracketsY()
   );
   const model = union(
-    align({ modes: ['center', 'max', 'max'] }, shellWithInnerBrackets),
+    align({ modes: ['center', 'max', 'max'] }, shellModifier(shellWithInnerBrackets)),
     align({ modes: ['center', 'min', 'max'] }, hooks.grid(shellOuterSize[0], shellOuterSize[2]))
   );
   return grid.center(model);

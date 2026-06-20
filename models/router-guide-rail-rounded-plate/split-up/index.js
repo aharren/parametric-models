@@ -1,10 +1,10 @@
 'use strict';
 
 const config = {
-  width: 300,
-  depth: 45,
+  width: 240,
+  depth: 150,
   height: 15,
-  cornerRadius: 1,
+  cornerRadius: 15,
   space: (30 - 8) / 2, // e.g. (router copy ring diameter - router bit diameter) / 2
   frameBorder: 20,
   segments: 256,

@@ -122,7 +122,7 @@ const main = (params) => {
   objects.push(translate([-bendCurveRadius, 0, 0], segmentRingA(connector2Radius, true)));
   objects.push(translate([-bendCurveRadius, 0, connector2Radius.heightRingA], segmentBA(connector2Radius, true, connector2Modifier)));
 
-  return grid.center(rotate([0, bendAngle, 0], objects));
+  return grid.center1(rotate([0, bendAngle, 0], objects));
 }
 
 module.exports = { ...preview.main({ xRay: true, dimensions: false }, main), ...config(), };

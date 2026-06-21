@@ -4,6 +4,7 @@ const { rotate, translate, align, mirrorZ } = require('@jscad/modeling').transfo
 const { degToRad } = require('@jscad/modeling/src').utils;
 
 const { tubeElliptic, tubeCurved } = require('../../lib/tubes');
+const grid = require('../../lib/grid');
 const config = require('../../lib/config');
 const visuals = require('../../lib/visuals');
 const preview = require('../../lib/preview');
@@ -121,7 +122,7 @@ const main = (params) => {
   objects.push(translate([-bendCurveRadius, 0, 0], segmentRingA(connector2Radius, true)));
   objects.push(translate([-bendCurveRadius, 0, connector2Radius.heightRingA], segmentBA(connector2Radius, true, connector2Modifier)));
 
-  return align({ grouped: true }, rotate([0, bendAngle, 0], objects));
+  return grid.center(rotate([0, bendAngle, 0], objects));
 }
 
 module.exports = { ...preview.main({ xRay: true, dimensions: false }, main), ...config(), };

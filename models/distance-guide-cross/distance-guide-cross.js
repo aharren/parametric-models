@@ -3,7 +3,7 @@
 const { cuboid } = require('@jscad/modeling').primitives;
 const { union } = require('@jscad/modeling').booleans;
 const { align, rotateZ } = require('@jscad/modeling').transforms;
-const { degToRad } = require('@jscad/modeling/src').utils;
+const { degToRad } = require('@jscad/modeling').utils;
 
 const preview = require('../../lib/preview');
 

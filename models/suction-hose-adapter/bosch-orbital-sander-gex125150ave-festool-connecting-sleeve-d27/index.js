@@ -1,6 +1,6 @@
 'use strict';
 
-const { degToRad } = require('@jscad/modeling/src').utils;
+const { degToRad } = require('@jscad/modeling').utils;
 
 const { vCutBottom } = require('../../../lib/cuts');
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const { degToRad } = require('@jscad/modeling/src').utils;
+const { degToRad } = require('@jscad/modeling').utils;
 const { union } = require('@jscad/modeling').booleans;
 
 const connectors = require('../../lib/suction-hose-connectors');

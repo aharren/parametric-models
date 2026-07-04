@@ -1,7 +1,7 @@
 'use strict';
 
 const { rotate, translate, align, mirrorZ } = require('@jscad/modeling').transforms;
-const { degToRad } = require('@jscad/modeling/src').utils;
+const { degToRad } = require('@jscad/modeling').utils;
 
 const { tubeElliptic, tubeCurved } = require('../../lib/tubes');
 const grid = require('../../lib/grid');

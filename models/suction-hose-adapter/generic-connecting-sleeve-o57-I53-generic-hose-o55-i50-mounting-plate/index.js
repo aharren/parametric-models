@@ -15,8 +15,9 @@ const config = {
 };
 
 config.connector1Modifier = (object) => {
-  const plateWidth = config.connector1.outerDiameterA + config.wallThickness + 20;
-  const holeDistance = 2 * config.wallThickness;
+  const plateBorderWidth = 16;
+  const plateWidth = config.connector1.outerDiameterA + config.wallThickness + 2 * plateBorderWidth;
+  const holeDistance = 7;
   const holeDiameter = 3;
   return union(object, mounts.plateRectangular({ size: plateWidth, distance: holeDistance, radius: holeDiameter / 2 }, object));
 };

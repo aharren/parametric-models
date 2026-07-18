@@ -24,7 +24,19 @@ const Hose_O55_I50 = {
     }),
 };
 
+const Hose_O40_I35 = {
+  socket:
+    construct.socket({
+      outerDiameterA: 40,
+      innerDiameterA: 35,
+      distanceAB: 55,
+      innerDiameterB: 33,
+      heightRingA: 5,
+    }),
+};
+
 module.exports = {
   ConnectingSleeve_O57_I53,
   Hose_O55_I50,
+  Hose_O40_I35,
 };

@@ -28,10 +28,10 @@ const main = (params) => {
 
   const radius = (c) => {
     const r = {};
-    r.outerRadiusInnerSide = c.isSocket ? c.innerDiameterA / 2 + wallThickness : c.outerDiameterA / 2;
-    r.innerRadiusInnerSide = r.outerRadiusInnerSide - wallThickness;
-    r.outerRadiusOuterSide = c.isSocket ? c.innerDiameterB / 2 + wallThickness : c.outerDiameterB / 2;
+    r.outerRadiusOuterSide = c.isSocket ? c.innerDiameterA / 2 + wallThickness : c.outerDiameterA / 2;
     r.innerRadiusOuterSide = r.outerRadiusOuterSide - wallThickness;
+    r.outerRadiusInnerSide = c.isSocket ? c.innerDiameterB / 2 + wallThickness : c.outerDiameterB / 2;
+    r.innerRadiusInnerSide = r.outerRadiusInnerSide - wallThickness;
     r.outerRadiusRing = c.isSocket ? r.outerRadiusInnerSide : r.outerRadiusInnerSide + wallThickness;
     r.innerRadiusRing = c.isSocket ? r.innerRadiusInnerSide - wallThickness : r.innerRadiusInnerSide;
     r.distanceAB = c.distanceAB;

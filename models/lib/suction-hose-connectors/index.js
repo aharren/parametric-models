@@ -8,6 +8,7 @@ module.exports = {
     plug: construct.plug,
     socket: construct.socket,
   },
+  flip: construct.flip,
   invert: construct.invert,
   modify: construct.modify,
   library,

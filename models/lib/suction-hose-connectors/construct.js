@@ -53,6 +53,30 @@ const socket = (params) => {
   return object;
 }
 
+// flips the A/B sides of the given connector, keeps the type
+const flip = (options, object) => {
+  switch (object.type) {
+    case TYPE_PLUG:
+      return plug({
+        outerDiameterA: object.outerDiameterB,
+        innerDiameterA: object.innerDiameterB,
+        distanceAB: object.distanceAB,
+        outerDiameterB: object.outerDiameterA,
+        heightRing: object.heightRing,
+      });
+    case TYPE_SOCKET:
+      return socket({
+        outerDiameterA: object.outerDiameterB,
+        innerDiameterA: object.innerDiameterB,
+        distanceAB: object.distanceAB,
+        innerDiameterB: object.innerDiameterA,
+        heightRing: object.heightRing,
+      });
+    default:
+      return {};
+  }
+}
+
 // inverts the given connector, e.g. creates a socket connector from a plug connector
 const invert = (options, object) => {
   const play = options.play ?? 0;
@@ -87,6 +111,7 @@ const modify = (fn, object) => {
 module.exports = {
   plug,
   socket,
+  flip,
   invert,
   modify,
 };

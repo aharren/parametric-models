@@ -81,6 +81,7 @@ const flip = (options, object) => {
 const invert = (options, object) => {
   const play = options.play ?? 0;
 
+  object = flip({}, object);
   switch (object.type) {
     case TYPE_PLUG:
       return socket({

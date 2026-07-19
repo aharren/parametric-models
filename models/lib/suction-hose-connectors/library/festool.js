@@ -9,7 +9,7 @@ const ConnectingSleeve_D27_O34_I27 = {
       innerDiameterA: 27,
       distanceAB: 30,
       outerDiameterB: 36,
-      heightRingA: 10,
+      heightRing: 10,
     }),
 }
 

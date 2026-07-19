@@ -9,7 +9,7 @@ const ConnectingSleeve_O57_I53 = {
       innerDiameterA: 53,
       distanceAB: 55,
       outerDiameterB: 59,
-      heightRingA: 25,
+      heightRing: 25,
     }),
 };
 
@@ -31,7 +31,7 @@ const Hose_O55_I50 = {
       innerDiameterA: 50,
       distanceAB: 55,
       innerDiameterB: 48,
-      heightRingA: 5,
+      heightRing: 5,
     }),
 };
 
@@ -42,7 +42,7 @@ const Hose_O40_I35 = {
       innerDiameterA: 35,
       distanceAB: 55,
       innerDiameterB: 33,
-      heightRingA: 5,
+      heightRing: 5,
     }),
 };
 

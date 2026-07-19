@@ -9,7 +9,7 @@ const OrbitalSander_GSS12V13_O28 = {
       innerDiameterA: 24,
       distanceAB: 24,
       outerDiameterB: 27.8,
-      heightRingA: 5,
+      heightRing: 5,
     }),
 };
 
@@ -20,7 +20,7 @@ const OrbitalSander_GEX125150AVE_O28 = {
       innerDiameterA: 22.4,
       distanceAB: 33.5,
       outerDiameterB: 28.4,
-      heightRingA: 5,
+      heightRing: 5,
     }),
 };
 
@@ -31,7 +31,7 @@ const MiterSaw_GCM8SJL_I45 = {
       innerDiameterA: 46.5,
       distanceAB: 25,
       innerDiameterB: 45,
-      heightRingA: 5,
+      heightRing: 5,
     }),
 };
 

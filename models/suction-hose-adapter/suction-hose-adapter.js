@@ -32,11 +32,11 @@ const main = (params) => {
     r.innerRadiusA = r.outerRadiusA - wallThickness;
     r.outerRadiusB = c.isSocket ? c.innerDiameterB / 2 + wallThickness : c.outerDiameterB / 2;
     r.innerRadiusB = r.outerRadiusB - wallThickness;
-    r.outerRadiusRingA = c.isSocket ? r.outerRadiusA : r.outerRadiusA + wallThickness;
-    r.innerRadiusRingA = c.isSocket ? r.innerRadiusA - wallThickness : r.innerRadiusA;
+    r.outerRadiusRing = c.isSocket ? r.outerRadiusA : r.outerRadiusA + wallThickness;
+    r.innerRadiusRing = c.isSocket ? r.innerRadiusA - wallThickness : r.innerRadiusA;
     r.distanceAB = c.distanceAB;
-    r.heightRingA = c.heightRingA ?? 5;
-    r.maxOuterRadius = Math.max(r.outerRadiusA, r.outerRadiusB, r.outerRadiusRingA);
+    r.heightRing = c.heightRing ?? 5;
+    r.maxOuterRadius = Math.max(r.outerRadiusA, r.outerRadiusB, r.outerRadiusRing);
     return r;
   }
   const connector1Radius = radius(connector1);
@@ -44,8 +44,8 @@ const main = (params) => {
 
   const maxOuterRadius = Math.max(connector1Radius.maxOuterRadius, connector2Radius.maxOuterRadius);
 
-  const bendOuterRadius = Math.min(connector1Radius.outerRadiusRingA, connector2Radius.outerRadiusRingA);
-  const bendInnerRadius = Math.min(connector1Radius.innerRadiusRingA, connector2Radius.innerRadiusRingA);
+  const bendOuterRadius = Math.min(connector1Radius.outerRadiusRing, connector2Radius.outerRadiusRing);
+  const bendInnerRadius = Math.min(connector1Radius.innerRadiusRing, connector2Radius.innerRadiusRing);
   const bendCurveRadius = bendOuterRadius * 2;
 
   const dimensionStartDistance = 20;
@@ -77,13 +77,13 @@ const main = (params) => {
     return translate([0, 0, mirror ? tube.height : 0], mirror ? mirrorZ(objects) : objects);
   }
 
-  const segmentRingA = (c, mirror) => {
+  const segmentRing = (c, mirror) => {
     const tube = {
-      startOuterRadius: c.outerRadiusRingA,
-      startInnerRadius: c.innerRadiusRingA,
+      startOuterRadius: c.outerRadiusRing,
+      startInnerRadius: c.innerRadiusRing,
       endOuterRadius: bendOuterRadius,
       endInnerRadius: bendInnerRadius,
-      height: c.heightRingA,
+      height: c.heightRing,
     };
 
     const objects = [];
@@ -114,13 +114,13 @@ const main = (params) => {
   }
 
   const objects = [];
-  objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0 - connector1Radius.distanceAB - connector1Radius.heightRingA], segmentBA(connector1Radius, false, connector1Modifier))));
-  objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0 - connector1Radius.heightRingA], segmentRingA(connector1Radius, false))));
+  objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0 - connector1Radius.distanceAB - connector1Radius.heightRing], segmentBA(connector1Radius, false, connector1Modifier))));
+  objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0 - connector1Radius.heightRing], segmentRing(connector1Radius, false))));
   if (bendAngle > 0) {
     objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0], segmentCurve())));
   }
-  objects.push(translate([-bendCurveRadius, 0, 0], segmentRingA(connector2Radius, true)));
-  objects.push(translate([-bendCurveRadius, 0, connector2Radius.heightRingA], segmentBA(connector2Radius, true, connector2Modifier)));
+  objects.push(translate([-bendCurveRadius, 0, 0], segmentRing(connector2Radius, true)));
+  objects.push(translate([-bendCurveRadius, 0, connector2Radius.heightRing], segmentBA(connector2Radius, true, connector2Modifier)));
 
   return grid.center1(rotate([0, bendAngle, 0], objects));
 }

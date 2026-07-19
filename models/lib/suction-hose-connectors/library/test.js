@@ -9,7 +9,7 @@ const o30i25 = {
       innerDiameterA: 26,
       distanceAB: 31,
       outerDiameterB: 32,
-      heightRingA: 10,
+      heightRing: 10,
     }),
   socket:
     construct.socket({
@@ -17,7 +17,7 @@ const o30i25 = {
       innerDiameterA: 25,
       distanceAB: 26,
       innerDiameterB: 23,
-      heightRingA: 5,
+      heightRing: 5,
     }),
 };
 
@@ -28,7 +28,7 @@ const o57 = {
       innerDiameterA: 53,
       distanceAB: 55,
       outerDiameterB: 59,
-      heightRingA: 25,
+      heightRing: 25,
     }),
 };
 
@@ -39,7 +39,7 @@ const o50 = {
       innerDiameterA: 50,
       distanceAB: 55,
       innerDiameterB: 48,
-      heightRingA: 5,
+      heightRing: 5,
     }),
 };
 

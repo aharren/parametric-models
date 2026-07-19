@@ -28,15 +28,15 @@ const main = (params) => {
 
   const radius = (c) => {
     const r = {};
-    r.outerRadiusA = c.isSocket ? c.innerDiameterA / 2 + wallThickness : c.outerDiameterA / 2;
-    r.innerRadiusA = r.outerRadiusA - wallThickness;
-    r.outerRadiusB = c.isSocket ? c.innerDiameterB / 2 + wallThickness : c.outerDiameterB / 2;
-    r.innerRadiusB = r.outerRadiusB - wallThickness;
-    r.outerRadiusRing = c.isSocket ? r.outerRadiusA : r.outerRadiusA + wallThickness;
-    r.innerRadiusRing = c.isSocket ? r.innerRadiusA - wallThickness : r.innerRadiusA;
+    r.outerRadiusInnerSide = c.isSocket ? c.innerDiameterA / 2 + wallThickness : c.outerDiameterA / 2;
+    r.innerRadiusInnerSide = r.outerRadiusInnerSide - wallThickness;
+    r.outerRadiusOuterSide = c.isSocket ? c.innerDiameterB / 2 + wallThickness : c.outerDiameterB / 2;
+    r.innerRadiusOuterSide = r.outerRadiusOuterSide - wallThickness;
+    r.outerRadiusRing = c.isSocket ? r.outerRadiusInnerSide : r.outerRadiusInnerSide + wallThickness;
+    r.innerRadiusRing = c.isSocket ? r.innerRadiusInnerSide - wallThickness : r.innerRadiusInnerSide;
     r.distanceAB = c.distanceAB;
     r.heightRing = c.heightRing ?? 5;
-    r.maxOuterRadius = Math.max(r.outerRadiusA, r.outerRadiusB, r.outerRadiusRing);
+    r.maxOuterRadius = Math.max(r.outerRadiusInnerSide, r.outerRadiusOuterSide, r.outerRadiusRing);
     return r;
   }
   const connector1Radius = radius(connector1);
@@ -53,10 +53,10 @@ const main = (params) => {
 
   const segmentConnector = (c, mirror, modifier) => {
     const tube = {
-      startOuterRadius: c.outerRadiusB,
-      startInnerRadius: c.innerRadiusB,
-      endOuterRadius: c.outerRadiusA,
-      endInnerRadius: c.innerRadiusA,
+      startOuterRadius: c.outerRadiusOuterSide,
+      startInnerRadius: c.innerRadiusOuterSide,
+      endOuterRadius: c.outerRadiusInnerSide,
+      endInnerRadius: c.innerRadiusInnerSide,
       height: c.distanceAB,
     };
 

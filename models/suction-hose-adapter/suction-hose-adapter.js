@@ -51,7 +51,7 @@ const main = (params) => {
   const dimensionStartDistance = 20;
   const dimensionDistance = 8;
 
-  const segmentBA = (c, mirror, modifier) => {
+  const segmentConnector = (c, mirror, modifier) => {
     const tube = {
       startOuterRadius: c.outerRadiusB,
       startInnerRadius: c.innerRadiusB,
@@ -114,13 +114,13 @@ const main = (params) => {
   }
 
   const objects = [];
-  objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0 - connector1Radius.distanceAB - connector1Radius.heightRing], segmentBA(connector1Radius, false, connector1Modifier))));
+  objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0 - connector1Radius.distanceAB - connector1Radius.heightRing], segmentConnector(connector1Radius, false, connector1Modifier))));
   objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0 - connector1Radius.heightRing], segmentRing(connector1Radius, false))));
   if (bendAngle > 0) {
     objects.push(rotate([0, -bendAngle, 0], translate([-bendCurveRadius, 0, 0], segmentCurve())));
   }
   objects.push(translate([-bendCurveRadius, 0, 0], segmentRing(connector2Radius, true)));
-  objects.push(translate([-bendCurveRadius, 0, connector2Radius.heightRing], segmentBA(connector2Radius, true, connector2Modifier)));
+  objects.push(translate([-bendCurveRadius, 0, connector2Radius.heightRing], segmentConnector(connector2Radius, true, connector2Modifier)));
 
   return grid.center1(rotate([0, bendAngle, 0], objects));
 }

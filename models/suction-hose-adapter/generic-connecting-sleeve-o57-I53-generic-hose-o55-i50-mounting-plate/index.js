@@ -6,6 +6,8 @@ const { union } = require('@jscad/modeling').booleans;
 const connectors = require('../../lib/suction-hose-connectors');
 const mounts = require('../../lib/mounting-plates');
 
+const measurements = require('../../../lib/measurements');
+
 const config = {
   connector1: connectors.invert({ play: 0.0 }, connectors.library.generic.ConnectingSleeve_O57_I53.plug),
   connector2: connectors.invert({ play: 0.0 }, connectors.library.generic.Hose_O55_I50.socket),
@@ -16,7 +18,8 @@ const config = {
 
 config.connector1Modifier = (object) => {
   const plateBorderWidth = 16;
-  const plateWidth = config.connector1.outerDiameterA + config.wallThickness + 2 * plateBorderWidth;
+  const dimensions = measurements.measureDimensions(object);
+  const plateWidth = dimensions[0] + 2 * plateBorderWidth;
   const holeDistance = 7;
   const holeDiameter = 3;
   return union(object, mounts.plateRectangular({ size: plateWidth, distance: holeDistance, radius: holeDiameter / 2 }, object));

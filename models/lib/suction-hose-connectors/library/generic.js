@@ -13,6 +13,17 @@ const ConnectingSleeve_O57_I53 = {
     }),
 };
 
+const ConnectingSleeve_O56_5 = {
+  plug:
+    construct.plug({
+      outerDiameterA: 56.5,
+      innerDiameterA: 52.5,
+      distanceAB: 25,
+      outerDiameterB: 57,
+      heightRing: 10,
+    }),
+};
+
 const Hose_O55_I50 = {
   socket:
     construct.socket({
@@ -37,6 +48,7 @@ const Hose_O40_I35 = {
 
 module.exports = {
   ConnectingSleeve_O57_I53,
+  ConnectingSleeve_O56_5,
   Hose_O55_I50,
   Hose_O40_I35,
 };

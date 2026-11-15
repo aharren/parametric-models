@@ -32,8 +32,8 @@ const main = (params) => {
     r.innerRadiusOuterSide = r.outerRadiusOuterSide - wallThickness;
     r.outerRadiusInnerSide = c.isSocket ? c.innerDiameterB / 2 + wallThickness : c.outerDiameterB / 2;
     r.innerRadiusInnerSide = r.outerRadiusInnerSide - wallThickness;
-    r.outerRadiusRing = c.isSocket ? r.outerRadiusInnerSide : r.outerRadiusInnerSide + wallThickness;
-    r.innerRadiusRing = c.isSocket ? r.innerRadiusInnerSide - wallThickness : r.innerRadiusInnerSide;
+    r.outerRadiusRing = c.isSocket ? r.outerRadiusInnerSide : r.outerRadiusInnerSide + (c.ringStop ? wallThickness : 0);
+    r.innerRadiusRing = c.isSocket ? r.innerRadiusInnerSide - (c.ringStop ? wallThickness : 0) : r.innerRadiusInnerSide;
     r.distanceAB = c.distanceAB;
     r.heightRing = c.heightRing ?? 5;
     r.maxOuterRadius = Math.max(r.outerRadiusInnerSide, r.outerRadiusOuterSide, r.outerRadiusRing);

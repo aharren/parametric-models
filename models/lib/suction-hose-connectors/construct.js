@@ -1,6 +1,7 @@
 'use strict';
 
 const defaultHeightRing = 10;
+const defaultRingStop = true;
 
 const TYPE_PLUG = 'plug';
 const TYPE_SOCKET = 'socket';
@@ -32,6 +33,7 @@ const plug = (params) => {
     ...param(params, 'distanceAB'),
     ...param(params, 'outerDiameterB'),
     heightRing: params.heightRing ?? defaultHeightRing,
+    ringStop: params.ringStop ?? defaultRingStop,
   };
   object.wallThickness = Math.abs(object.outerDiameterA - object.innerDiameterA);
   object.innerDiameterB = object.outerDiameterB - object.wallThickness;
@@ -47,6 +49,7 @@ const socket = (params) => {
     ...param(params, 'distanceAB'),
     ...param(params, 'innerDiameterB'),
     heightRing: params.heightRing ?? defaultHeightRing,
+    ringStop: params.ringStop ?? defaultRingStop,
   };
   object.wallThickness = Math.abs(object.outerDiameterA - object.innerDiameterA);
   object.outerDiameterB = object.innerDiameterB + object.wallThickness;
@@ -63,6 +66,7 @@ const flip = (options, object) => {
         distanceAB: object.distanceAB,
         outerDiameterB: object.outerDiameterA,
         heightRing: object.heightRing,
+        ringStop: object.ringStop,
       });
     case TYPE_SOCKET:
       return socket({
@@ -71,6 +75,7 @@ const flip = (options, object) => {
         distanceAB: object.distanceAB,
         innerDiameterB: object.innerDiameterA,
         heightRing: object.heightRing,
+        ringStop: object.ringStop,
       });
     default:
       return {};
@@ -90,6 +95,7 @@ const invert = (options, object) => {
         distanceAB: object.distanceAB,
         innerDiameterB: object.outerDiameterB + play,
         heightRing: object.heightRing,
+        ringStop: object.ringStop,
       });
     case TYPE_SOCKET:
       return plug({
@@ -98,6 +104,7 @@ const invert = (options, object) => {
         distanceAB: object.distanceAB,
         outerDiameterB: object.innerDiameterB - play,
         heightRing: object.heightRing,
+        ringStop: object.ringStop,
       });
     default:
       return {};
